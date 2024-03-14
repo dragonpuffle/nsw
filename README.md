@@ -1,2 +1,5 @@
 # nsw
-nsw algorithm
+We'll start off by formally defining the problem. k-nearest neighbor search is a problem where given a query object q we need to find the  k-closest objects from a fixed set of objects  O∈D, where  D is the set of all possible objects at hand.
+The idea behind navigable small world is to use a graph data structure  G(V,E) to represent these objects  O, where every object  oi is represented by a vertex/node  vi. The navigable small world graph structure is constructed by sequential addition of all elements. For every new element, we find the set of its closest neighbors using a variant of the greedy search algorithm, upon doing so, we'll then introduce a bidirectional connection between that set of neighbors and the incoming element.
+Upon building the graph, searching for the closest objects to  q is very similar to adding objects to the graph. i.e. It involves traversing through the graph to find the closest vertices/nodes using the same variant of greedy search algorithm that's used when constructing the graph.
+Another thing worth noting is that determining closest neighbors is dependent on a distance function. As the algorithm doesn't make any strong assumption about the data, it can be used on any distance function of our likings. Here we'll be using the cosine distance as an illustration.
